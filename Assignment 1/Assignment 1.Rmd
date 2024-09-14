@@ -1,0 +1,178 @@
+---
+title: "608 - Assignment 1"
+output: pdf_document
+date: "`r Sys.Date()`"
+---
+
+```{r, echo = FALSE, results = "hide", message = FALSE, warning = FALSE}
+library(dplyr)
+library(ggplot2)
+library(tidyverse)
+```
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+```{r, echo = FALSE, results = "hide"}
+financial_data <- read.csv("https://raw.githubusercontent.com/Mattr5541/DATA-608/main/Assignment%201/IIJA%20FUNDING%20AS%20OF%20MARCH%202023.csv")
+
+view(financial_data)
+
+state_data <- read.csv("https://raw.githubusercontent.com/Mattr5541/DATA-608/main/Assignment%201/NST-EST2023-POP.csv")
+view(state_data)
+```
+
+```{r, echo = FALSE, results = "hide"}
+
+## Data Cleaning
+
+print(financial_data)
+
+financial_data <- financial_data %>% rename(Geography = "State..Teritory.or.Tribal.Nation", Funding = "Total..Billions.")
+
+financial_data$Geography[financial_data$Geography == "DELEWARE"] <- "DELAWARE"
+
+state_data <- state_data %>% rename(Geography = "table.with.row.headers.in.column.A.and.column.headers.in.rows.3.through.4...leading.dots.indicate.sub.parts.", Population = X)
+
+state_data <- state_data %>% select(-c(X.1, X.2, X.3))
+state_data <- state_data %>% filter(Geography != "" | Population != "")
+
+state_data <- state_data %>% filter(!row_number() %in% c(1, 2))
+
+state_data <- state_data %>% mutate(Geography = gsub("\\.", "", Geography))
+
+state_data <- state_data %>% mutate(Geography = toupper(Geography))
+```
+
+```{r, echo = FALSE}
+## Merging Data
+
+merged_data <- merge(financial_data, state_data, by.x = "Geography", all = "TRUE")
+
+view(merged_data)
+```
+
+
+```{r, echo = FALSE}
+##Adding Population figures for territories not included
+
+merged_data$Population <- as.integer(gsub(",", "", merged_data$Population))
+
+merged_data$Population <- ifelse(merged_data$Geography == "AMERICAN SAMOA", 49710, merged_data$Population)
+merged_data$Population <- ifelse(merged_data$Geography == "GUAM", 153836, merged_data$Population)
+merged_data$Population <- ifelse(merged_data$Geography == "NORTHERN MARIANA ISLANDS", 47329, merged_data$Population)
+#merged_data$Population <- ifelse(merged_data$Geography == "TRIBAL COMMUNITIES", , merged_data$Population)
+merged_data$Population <- ifelse(merged_data$Geography == "US VIRGIN ISLANDS", 87146, merged_data$Population)
+```
+
+```{r, echo = FALSE, results =  "hide", warning = FALSE, message = FALSE}
+## Adding Political Affiliation Based on State Representatives in 2020
+democratic_states <- c("ARIZONA", "CALIFORNIA", "COLORADO", "CONNECTICUT", "DELAWARE", 
+                       "HAWAII", "ILLINOIS", "KANSAS", "MARYLAND", "MASSACHUSETTS", 
+                       "MICHIGAN", "NEW JERSEY", "NEW MEXICO", "NEW YORK", "NORTH CAROLINA", 
+                       "OREGON", "RHODE ISLAND", "WASHINGTON", "WISCONSIN")
+
+territories <- c("AMERICAN SAMOA", "GUAM", "NORTHERN MARIANA ISLANDS", "TRIBAL COMMUNITIES", "US VIRGIN ISLANDS", "PUERTO RICO", "HAWAII")
+
+merged_data$Gov <- ifelse(merged_data$Geography %in% democratic_states, "Democratic", "Republican")
+
+merged_data$Gov <- ifelse(merged_data$Geography %in% territories, "N/A", merged_data$Gov)
+
+merged_data <- merged_data %>% arrange(desc(Funding), desc(Population))
+
+merged_data <- merged_data %>% mutate(Pop_10k = Population / 10000)
+#ggplot(merged_data)
+
+political_freq <- merged_data %>% group_by(Gov) %>% summarize(freq = n(), avg_pop = median(Pop_10k, na.rm = T), avg_funding = median(Funding))
+
+political_freq <- political_freq %>% mutate(Bands = ifelse(Gov == "Democratic", "Over 6,000,000", NA))
+political_freq <- political_freq %>% mutate(Bands = ifelse(Gov == "N/A", "Over 100,000", Bands))
+political_freq <- political_freq %>% mutate(Bands = ifelse(Gov == "Republican", "Over 3,000,000", Bands))
+
+
+#avg_fund <- avg_fund %>% arrange(desc(Average_Funding))
+
+```
+
+
+```{r, echo = FALSE, results =  "hide", warning = FALSE, message = FALSE}
+merged_data <- merged_data %>% mutate(Bands = ifelse(Population <= 1000000, "0 - 1 Million", NA))
+merged_data <- merged_data %>% mutate(Bands = ifelse(Population > 1000000 & Population <= 5000000, "1 Million - 5 Million", Bands))
+merged_data <- merged_data %>% mutate(Bands = ifelse(Population > 5000000 & Population <= 10000000, "5 Million - 10 Million", Bands))
+merged_data <- merged_data %>% mutate(Bands = ifelse(Population > 10000000 & Population <= 40000000, "10 Million - 40 Million", Bands))
+
+summarized_bands <- merged_data %>% group_by(Gov, Bands) %>% summarize(avg_funding = median(Funding))
+
+summarized_bands <- summarized_bands %>% na.omit()
+```
+
+
+# Was there Political Bias in Allocated Funding in the Year 2020?
+
+The issue of political bias and mis-allocation of funding as a result of said bias is a hot-button issue with a variety of perspectives. Today, we will be examining the funding that each state received to determine if bias was present in the allocation per state, based on political affiliation. Political affiliation, in this analysis, will be defined by the active State Governor's political affiliation in the year 2020. In addition, we will be looking at the influence of population size, based on 2020 census data, in this relationship. Specifically, we will be looking at allocation received by democratic states, republican states, and U.S. territories. 
+
+# Analytic Plan
+
+First, we will begin by looking at the median allocation of funding to states by political ideology. By using median values, we can account for skewed results as a consequence of larger states that receive far more funding compared to smaller states.
+
+## Figure 1.
+```{r, echo = FALSE}
+ggplot(political_freq, aes(x = factor(Gov, levels = c("Democratic", "Republican", "N/A")), y = avg_funding, fill = Gov)) + 
+  geom_bar(stat = 'identity') +
+  labs(title = "Median Funding Allocated by State Political Affiliation", 
+       x = "Political Affiliation",
+       y = "Median Funding",
+       fill = "Political Affiliation") +
+  scale_fill_manual(values = c("Democratic" = "blue", "Republican" = "red", "N/A" = "gray")) + theme_classic()
+```
+Figure 1 demonstrates the average distribution of funding based on political affiliation. Overall, democratic states receive more funding, per capita, compared to Republican States. U.S. Territories (denoted by "N/A") receive disproportionately less funding, comparatively.
+
+# What is Driving these Differences?
+
+Now that we have a glimpse into per capita funding differences based on political affiliation, we should explore additional considerations that may better explain this relationship. One potential mechanism may be population size, for instance. It seems intuitive to suggest that state funding may partially exist as a function of population differences, as larger populations may require more funding to facilitate greater infrastructure requirements.
+
+## Figure 2.
+
+```{r, echo = FALSE}
+ggplot(merged_data, aes(x = Pop_10k, y = Funding, color = Gov)) + 
+  geom_point() +
+  #geom_text(label = merged_data$Geography)
+  scale_color_manual(values = c("blue", "gray", "red")) +
+  labs(title = "Amount of Funding Provided to U.S. States by Population Size", x = "Population Size (in units of 10,000) ", y = "Funding", color = "Political Affiliation") + theme_classic()
+```
+
+Figure 2 details the relationship between population size and allocated funding. Note that population sizes were divided by 10,000 for readability. 
+In this scatterplot, we can see that there appears to be a linear relationship between population size and funding, such that, irrespective of political affiliation, greater populations receive greater levels of funding. In addition, similar to Figure 1, U.S., territories receive much less funding compared to U.S. states.
+
+# Further Exmaination of this Trend
+
+Now that we have established a general trend, we can further dissect this relationship by assessing median allocated funding by population brackets (i.e., 0 - 1 million, 1 million - 5 million, etc.). This will tell us 
+
+## Figure 3.
+
+```{r, echo = FALSE}
+ggplot(summarized_bands, aes(Bands, avg_funding, group = Gov)) + geom_line(aes(color = Gov)) + geom_point(aes(color = Gov)) + scale_color_manual(values = c("Democratic" = "blue", "Republican" = "red", "N/A" = "gray")) + labs(title = "Differences in Median Funding Across Population Brackets", x = "Population Brackets", y = "Median Funding", color = "Political Affiliation") + scale_x_discrete(limits = c("0 - 1 Million", "1 Million - 5 Million", "5 Million - 10 Million", "10 Million - 40 Million")) + theme_classic() + theme(axis.text = element_text(size = 8))
+```
+
+Figure 3 depicts the median funding allocated by population bracket, with differences in political affiliation included. We can see, similar to Figure 2, that funding is allocated based primarily on population size. In addition, we can see that, in states with 1 million or less individuals, those that had Republican leadership in the year 2020 appeared to receive more funding compared to those with Democratic leadership. However, it is notable that states with population sizes of over one million tend to have slightly higher average funding compared to Republican states; however, the differences in funding are marginal across these population brackets. As expected, U.S. territories receive the lowest amount of median funding.
+
+# Conclusions
+
+Based on the descriptive analyses performed above, it appears that, overall, there was no to minimal bias from the Biden administration in the allocation of funding based on political affiliation in the year 2020. In fact, it would appear that Republican states in lower population brackets receive more funding compared to Democratic states in lower population brackets. However, this difference may have been a consequence of the disparity in the amount of Republican and Democratic states in that particular bracket. 
+Overall, it would appear that population size serves as a more proper indicator of funding allocation based on per capita estimates. It is notable, however, that U.S. territories are disproportionately neglected in terms of allocated funding.
+
+Further analyses may benefit from exploring additional factors that may contribute to differences in state funding. For instance, the level of infrastructural complexity, probability of natural disasters, or overall economic importance may serve as more appropriate predictors of funding allocation.
+
+
+# Sources:
+State Population Numbers: https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html
+
+Territories:
+
+2020 Island Areas Censuses: U.S. Virgin Islands, Population and Housing Unit Counts, Table 1. Population of the United States Virgin Islands: 2010 and 2020
+
+2020 Island Areas Censuses: Guam, Population and Housing Unit Counts, Table 1. Population of Guam: 2010 and 2020
+
+2020 Island Areas Censuses: American Samoa, Population and Housing Unit Counts, Table 1. Population of American Samoa: 2010 and 2020
