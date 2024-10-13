@@ -1,0 +1,2294 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20242.24.0910.0334                               -->
+<workbook original-version='18.1' source-build='2024.2.3 (20242.24.0910.0334)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelExtractV2.true...ObjectModelExtractV2 />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='Firearms &amp; Gun Safety 2022 (Assignment 3 - Excel)' inline='true' name='federated.064zjj20fi3aow0zq3ydw05wmtdq' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Assignment 3 - Excel' name='excel-direct.0asvhns03cglhg16xaxpd0fdyx88'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='E:/CUNY SPS/Fall 2024/DATA 608/Assignment 3/Assignment 3 - Excel.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='excel-direct.0asvhns03cglhg16xaxpd0fdyx88' name='Firearms &amp; Gun Safety Overall' table='[&apos;Firearms &amp; Gun Safety Overall$&apos;]' type='table'>
+          <columns gridOrigin='A1:N251:no:A1:N251:0' header='yes' outcome='6'>
+            <column datatype='string' name='State' ordinal='0' />
+            <column datatype='integer' name='State Code' ordinal='1' />
+            <column datatype='integer' name='Year' ordinal='2' />
+            <column datatype='integer' name='Year Code' ordinal='3' />
+            <column datatype='integer' name='Deaths' ordinal='4' />
+            <column datatype='integer' name='Population' ordinal='5' />
+            <column datatype='real' name='Crude Rate' ordinal='6' />
+            <column datatype='real' name='Age Adjusted Rate' ordinal='7' />
+            <column datatype='real' name='% of Total Deaths' ordinal='8' />
+            <column datatype='integer' name='Gun LawStrength(Ranked)' ordinal='9' />
+            <column datatype='string' name='Grade' ordinal='10' />
+            <column datatype='string' name='Grade2' ordinal='11' />
+            <column datatype='integer' name='Gun DeathRate(Ranked)' ordinal='12' />
+            <column datatype='real' name='Gun DeathRate(Per 100K)' ordinal='13' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='excel-direct.0asvhns03cglhg16xaxpd0fdyx88' name='Firearms &amp; Gun Safety Overall' table='[&apos;Firearms &amp; Gun Safety Overall$&apos;]' type='table'>
+          <columns gridOrigin='A1:N251:no:A1:N251:0' header='yes' outcome='6'>
+            <column datatype='string' name='State' ordinal='0' />
+            <column datatype='integer' name='State Code' ordinal='1' />
+            <column datatype='integer' name='Year' ordinal='2' />
+            <column datatype='integer' name='Year Code' ordinal='3' />
+            <column datatype='integer' name='Deaths' ordinal='4' />
+            <column datatype='integer' name='Population' ordinal='5' />
+            <column datatype='real' name='Crude Rate' ordinal='6' />
+            <column datatype='real' name='Age Adjusted Rate' ordinal='7' />
+            <column datatype='real' name='% of Total Deaths' ordinal='8' />
+            <column datatype='integer' name='Gun LawStrength(Ranked)' ordinal='9' />
+            <column datatype='string' name='Grade' ordinal='10' />
+            <column datatype='string' name='Grade2' ordinal='11' />
+            <column datatype='integer' name='Gun DeathRate(Ranked)' ordinal='12' />
+            <column datatype='real' name='Gun DeathRate(Per 100K)' ordinal='13' />
+          </columns>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>4</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:O251:no:A1:O251:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>State</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[State]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>State</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>State Code</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[State Code]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>State Code</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Year</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Year Code</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Year Code]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Year Code</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Deaths</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Deaths]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Deaths</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Population</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Population]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Population</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Crude Rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Crude Rate]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Crude Rate</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Age Adjusted Rate</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Age Adjusted Rate]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Age Adjusted Rate</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>% of Total Deaths</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[% of Total Deaths]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>% of Total Deaths</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Gun LawStrength(Ranked)</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Gun LawStrength(Ranked)]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Gun LawStrength(Ranked)</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Grade</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Grade]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Grade</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Grade2</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Grade2]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Grade2</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Gun DeathRate(Ranked)</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Gun DeathRate(Ranked)]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Gun DeathRate(Ranked)</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Gun DeathRate(Per 100K)</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Gun DeathRate(Per 100K)]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Gun DeathRate(Per 100K)</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Change?</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Change?]</local-name>
+            <parent-name>[Firearms &amp; Gun Safety Overall]</parent-name>
+            <remote-alias>Change?</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Age Adjusted Rate1' datatype='real' name='[Age Adjusted Rate]' role='measure' type='quantitative' />
+      <column datatype='string' name='[Grade2]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;A- to A&quot;' value='A' />
+          <alias key='&quot;B- to B+&quot;' value='B' />
+          <alias key='&quot;C- to C+&quot;' value='C' />
+          <alias key='&quot;D- to D+&quot;' value='D' />
+        </aliases>
+      </column>
+      <column caption='Grade1' datatype='string' name='[Grade]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[State Code]' role='dimension' type='ordinal' />
+      <column caption='State1' datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column datatype='integer' name='[Year Code]' role='dimension' type='ordinal' />
+      <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='Firearms &amp; Gun Safety Overall' datatype='table' name='[__tableau_internal_object_id__].[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]' role='measure' type='quantitative' />
+      <column-instance column='[Age Adjusted Rate]' derivation='None' name='[none:Age Adjusted Rate:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Forecast Indicator]' derivation='None' forecast-column-base='[Forecast Indicator]' forecast-column-type='forecast-indicator' name='[none:Forecast Indicator:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Grade2]' derivation='None' name='[none:Grade2:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Grade]' derivation='None' name='[none:Grade:nk]' pivot='key' type='nominal' />
+      <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+      <group hidden='true' name='[Inclusions (Age Adjusted Rate,Grade,State)]' name-style='unqualified' user:auto-column='include'>
+        <groupfilter function='crossjoin'>
+          <groupfilter function='level-members' level='[none:Age Adjusted Rate:qk]' />
+          <groupfilter function='level-members' level='[none:Grade:nk]' />
+          <groupfilter function='level-members' level='[none:State:nk]' />
+        </groupfilter>
+      </group>
+      <extract _.fcp.ObjectModelExtractV2.true...object-id='' _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='C:/Users/Black/AppData/Local/Temp/TableauTemp/#TableauTemp_1ncutlc0jek3qr1btnxq71yvgvas.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='10/13/2024 05:16:16 PM' username='tableau_internal_user'>
+          <_.fcp.ObjectModelEncapsulateLegacy.false...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <_.fcp.ObjectModelEncapsulateLegacy.true...relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>State</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[State]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>State</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>50</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>State Code</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[State Code]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>State Code</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>50</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Year Code</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Year Code]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Year Code</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Deaths</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Deaths]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Deaths</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>233</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Population</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Population]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Population</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>250</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Crude Rate</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Crude Rate]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Crude Rate</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>152</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Age Adjusted Rate</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Age Adjusted Rate]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Age Adjusted Rate</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>161</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>% of Total Deaths</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[% of Total Deaths]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>% of Total Deaths</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>18</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Gun LawStrength(Ranked)</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Gun LawStrength(Ranked)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Gun LawStrength(Ranked)</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>49</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Grade</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Grade]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Grade</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Grade2</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Grade2]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Grade2</remote-alias>
+              <ordinal>11</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='1' name='LEN_RUS_S2' />
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Gun DeathRate(Ranked)</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Gun DeathRate(Ranked)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Gun DeathRate(Ranked)</remote-alias>
+              <ordinal>12</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>50</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Gun DeathRate(Per 100K)</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Gun DeathRate(Per 100K)]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Gun DeathRate(Per 100K)</remote-alias>
+              <ordinal>13</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>203</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Change?</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[Change?]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Change?</remote-alias>
+              <ordinal>14</ordinal>
+              <family>Firearms &amp; Gun Safety Overall</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2</approx-count>
+              <contains-null>true</contains-null>
+              <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-aliased-fields='true' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Grade2:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;A- to A&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;B- to B+&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;F&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;D- to D+&quot;</bucket>
+            </map>
+            <map to='#ff9da7'>
+              <bucket>&quot;C- to C+&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <default-sorts>
+        <manual-sort column='[none:Forecast Indicator:nk]' direction='ASC'>
+          <dictionary>
+            <bucket>&quot;Actual&quot;</bucket>
+            <bucket>&quot;Estimate&quot;</bucket>
+          </dictionary>
+        </manual-sort>
+      </default-sorts>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Firearms &amp; Gun Safety Overall' id='Firearms &amp; Gun Safety Overall_2AFFE4A6530E4BB085D2877AF98C94DA'>
+            <properties context=''>
+              <relation connection='excel-direct.0asvhns03cglhg16xaxpd0fdyx88' name='Firearms &amp; Gun Safety Overall' table='[&apos;Firearms &amp; Gun Safety Overall$&apos;]' type='table'>
+                <columns gridOrigin='A1:N251:no:A1:N251:0' header='yes' outcome='6'>
+                  <column datatype='string' name='State' ordinal='0' />
+                  <column datatype='integer' name='State Code' ordinal='1' />
+                  <column datatype='integer' name='Year' ordinal='2' />
+                  <column datatype='integer' name='Year Code' ordinal='3' />
+                  <column datatype='integer' name='Deaths' ordinal='4' />
+                  <column datatype='integer' name='Population' ordinal='5' />
+                  <column datatype='real' name='Crude Rate' ordinal='6' />
+                  <column datatype='real' name='Age Adjusted Rate' ordinal='7' />
+                  <column datatype='real' name='% of Total Deaths' ordinal='8' />
+                  <column datatype='integer' name='Gun LawStrength(Ranked)' ordinal='9' />
+                  <column datatype='string' name='Grade' ordinal='10' />
+                  <column datatype='string' name='Grade2' ordinal='11' />
+                  <column datatype='integer' name='Gun DeathRate(Ranked)' ordinal='12' />
+                  <column datatype='real' name='Gun DeathRate(Per 100K)' ordinal='13' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Map of U.S. Firerarm Mortalities and State Firearm Regulation Scores in 2022</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Firearms &amp; Gun Safety 2022 (Assignment 3 - Excel)' name='federated.064zjj20fi3aow0zq3ydw05wmtdq' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.064zjj20fi3aow0zq3ydw05wmtdq'>
+            <column caption='Age Adjusted Rate1' datatype='real' name='[Age Adjusted Rate]' role='measure' type='quantitative' />
+            <column caption='Grade1' datatype='string' name='[Grade]' role='dimension' type='nominal' />
+            <column caption='State1' datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Age Adjusted Rate]' derivation='None' name='[none:Age Adjusted Rate:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Grade]' derivation='None' name='[none:Grade:nk]' pivot='key' type='nominal' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[Inclusions (Age Adjusted Rate,Grade,State)]'>
+            <groupfilter function='reorder-dimensionality' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='union'>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;A&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;California&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='7.2000000000000002' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='7.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='8.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='8.5999999999999996' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='9.0' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;New Jersey&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.0999999999999996' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.7999999999999998' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='5.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='5.2000000000000002' />
+                      </groupfilter>
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;A-&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Connecticut&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.9000000000000004' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='5.2999999999999998' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='6.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='6.7000000000000002' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='6.9000000000000004' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Hawaii&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='3.3999999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.4000000000000004' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.7999999999999998' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Illinois&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.4' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.100000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Maryland&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.6' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.6' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.199999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Massachusetts&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='3.3999999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='3.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='3.7000000000000002' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;New York&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='3.8999999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.0999999999999996' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='5.2999999999999998' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='5.4000000000000004' />
+                      </groupfilter>
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;B&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Colorado&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.100000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.800000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Delaware&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='9.9000000000000004' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.6' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.9' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.4' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.600000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Rhode Island&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='5.5999999999999996' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Virginia&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.4' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.9' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Washington&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.199999999999999' />
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;B-&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Oregon&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.9' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Pennsylvania&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.800000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;B+&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Illinois&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.9' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Oregon&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.4' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Rhode Island&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='3.1000000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='3.2999999999999998' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='4.5999999999999996' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='5.0999999999999996' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Washington&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.4' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.9' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.4' />
+                      </groupfilter>
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;C&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Colorado&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.199999999999999' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Iowa&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='8.6999999999999993' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='9.0999999999999996' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.199999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Michigan&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.9' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.6' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Nebraska&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.4' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.199999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;New Mexico&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='27.800000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;North Carolina&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.800000000000001' />
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;C-&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Florida&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.9' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.1' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Nebraska&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='9.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.300000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;North Carolina&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.300000000000001' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Vermont&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='9.3000000000000007' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.6' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.9' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.0' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Wisconsin&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.5' />
+                      </groupfilter>
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;C+&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Colorado&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.4' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Michigan&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.4' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Minnesota&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='7.7999999999999998' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='8.0999999999999996' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='8.9000000000000004' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='9.5999999999999996' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.0' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Nevada&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='19.800000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;New Mexico&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='27.300000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Oregon&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.6' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.0' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Pennsylvania&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.6' />
+                      </groupfilter>
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;D&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Indiana&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.300000000000001' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Nevada&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.899999999999999' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;North Carolina&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.0' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Ohio&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.5' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Utah&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.6' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Virginia&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.800000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;D-&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Indiana&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.399999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Tennessee&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.399999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.300000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Utah&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.199999999999999' />
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;D+&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Vermont&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.800000000000001' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Wisconsin&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.0' />
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+                <groupfilter function='crossjoin'>
+                  <groupfilter function='member' level='[none:Grade:nk]' member='&quot;F&quot;' />
+                  <groupfilter function='union'>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Alabama&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='23.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='25.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='26.399999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Alaska&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.399999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='23.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='24.399999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='25.199999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Arizona&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.100000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Arkansas&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='19.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='23.300000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Georgia&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='19.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.300000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Idaho&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.600000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Indiana&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.399999999999999' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Iowa&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.199999999999999' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Kansas&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.300000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Kentucky&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.9' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.100000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.100000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Louisiana&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.399999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.100000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='26.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='28.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='29.100000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Maine&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.4' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.6' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Mississippi&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='24.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='28.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='29.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='33.899999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Missouri&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='23.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='23.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='24.199999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Montana&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='19.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='23.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='25.100000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;New Hampshire&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='8.3000000000000007' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='8.9000000000000004' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='10.800000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;New Mexico&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.699999999999999' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;North Dakota&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='11.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.4' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.399999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.800000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Ohio&quot;' />
+                      <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.6' />
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Oklahoma&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='19.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.199999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;South Carolina&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='19.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.800000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.0' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.399999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;South Dakota&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.1' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.6' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.699999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Tennessee&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.800000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Texas&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='12.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='14.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='15.6' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Utah&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.699999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='13.9' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;West Virginia&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.199999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='16.600000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='17.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.100000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='18.199999999999999' />
+                      </groupfilter>
+                    </groupfilter>
+                    <groupfilter function='crossjoin'>
+                      <groupfilter function='member' level='[none:State:nk]' member='&quot;Wyoming&quot;' />
+                      <groupfilter function='union'>
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='20.399999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='21.5' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='22.300000000000001' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='25.899999999999999' />
+                        <groupfilter function='member' level='[none:Age Adjusted Rate:qk]' member='26.100000000000001' />
+                      </groupfilter>
+                    </groupfilter>
+                  </groupfilter>
+                </groupfilter>
+              </groupfilter>
+              <order>
+                <hierarchy name='[none:Age Adjusted Rate:qk]' />
+                <hierarchy name='[none:Grade:nk]' />
+                <hierarchy name='[none:State:nk]' />
+              </order>
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]'>
+            <groupfilter function='level-members' level='[none:Grade:nk]' />
+          </filter>
+          <filter class='quantitative' column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]' included-values='in-range'>
+            <min>2022</min>
+            <max>2022</max>
+          </filter>
+          <slices>
+            <column>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[Inclusions (Age Adjusted Rate,Grade,State)]</column>
+            <column>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]</column>
+            <column>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[Longitude (generated)]' field-type='quantitative' max='26037966.165993251' min='20139767.760813463' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[Latitude (generated)]' field-type='quantitative' max='4658663.3623722829' min='1446278.0477584256' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Age Adjusted Rate:qk]' max='29.600000000000001' min='0.0' num-steps='6' reverse='true' symmetric='false' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-diverging'>
+                <color>#ff0000</color>
+                <color>#f73131</color>
+                <color>#ef5f5f</color>
+                <color>#e88b8b</color>
+                <color>#e0b3b3</color>
+                <color>#d9d9d9</color>
+                <color>#b3b3e0</color>
+                <color>#8b8be8</color>
+                <color>#5f5fef</color>
+                <color>#3131f7</color>
+                <color>#0000ff</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Age Adjusted Rate:qk]' value='Age Adjusted Death Rate'>
+              <formatted-text>
+                <run>Age Adjusted Death Rate</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='background' value='false' />
+            <format attr='enabled' id='barrier_line-land-polygon' value='false' />
+            <format attr='enabled' id='barrier_line-land-line' value='false' />
+            <format attr='enabled' id='national_park' value='false' />
+            <format attr='enabled' id='pitch' value='false' />
+            <format attr='enabled' id='industrial' value='false' />
+            <format attr='enabled' id='built-up-area' value='false' />
+            <format attr='enabled' id='water' value='false' />
+            <format attr='enabled' id='waterway-river-canal' value='false' />
+            <format attr='enabled' id='aeroway-polygon' value='false' />
+            <format attr='enabled' id='aeroway-runway' value='false' />
+            <format attr='enabled' id='aeroway-taxiway' value='false' />
+            <format attr='enabled' id='parks' value='false' />
+            <format attr='enabled' id='landcover_wood' value='false' />
+            <format attr='enabled' id='landcover_scrub' value='false' />
+            <format attr='enabled' id='landcover_grass' value='false' />
+            <format attr='enabled' id='landcover_crop' value='false' />
+            <format attr='enabled' id='admin-1-label-9th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-8th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-7th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-6th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-1-label-1st-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-3rd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-2nd-tier' value='false' />
+            <format attr='enabled' id='us-admin-1-label-abbr-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents-bg' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute-sub' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-sub' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-supress' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-sm-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-md-parents' value='false' />
+            <format attr='enabled' id='admin-1-boundaries-lg-parents' value='false' />
+            <format attr='enabled' id='admin1-water-lines-usa-tableau' value='false' />
+            <format attr='enabled' id='9-dash-line-casing' value='false' />
+            <format attr='enabled' id='9-dash-line' value='false' />
+            <format attr='enabled' id='admin-0-label-5th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-4th-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-3rd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-2nd-tier' value='false' />
+            <format attr='enabled' id='admin-0-label-1st-tier' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-bg' value='false' />
+            <format attr='enabled' id='admin-0-boundaries' value='false' />
+            <format attr='enabled' id='admin-0-boundaries-dispute' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <lod column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:State:nk]' />
+              <text column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]' />
+              <color column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Age Adjusted Rate:qk]' />
+              <geometry column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[Latitude (generated)]</rows>
+        <cols>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{18CD99A0-5E73-40A7-884A-B17AD522598E}' />
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Changes in Average Age Adjusted Death Rates Per Year</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Firearms &amp; Gun Safety 2022 (Assignment 3 - Excel)' name='federated.064zjj20fi3aow0zq3ydw05wmtdq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.064zjj20fi3aow0zq3ydw05wmtdq'>
+            <column caption='Age Adjusted Rate1' datatype='real' name='[Age Adjusted Rate]' role='measure' type='quantitative' />
+            <column caption='AVG([Age Adjusted Rate1]) / 100' datatype='real' name='[Calculation_2933250735495012355]' role='measure' type='quantitative' user:unnamed='Sheet 2'>
+              <calculation class='tableau' formula='AVG([Age Adjusted Rate]) / 100' />
+            </column>
+            <column datatype='string' name='[Grade2]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;A- to A&quot;' value='A' />
+                <alias key='&quot;B- to B+&quot;' value='B' />
+                <alias key='&quot;C- to C+&quot;' value='C' />
+                <alias key='&quot;D- to D+&quot;' value='D' />
+              </aliases>
+            </column>
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Grade2]' derivation='None' name='[none:Grade2:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2933250735495012355]' derivation='User' name='[usr:Calculation_2933250735495012355:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <manual-sort column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade2:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;F&quot;</bucket>
+              <bucket>&quot;D- to D+&quot;</bucket>
+              <bucket>&quot;C- to C+&quot;</bucket>
+              <bucket>&quot;B- to B+&quot;</bucket>
+              <bucket>&quot;A- to A&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[usr:Calculation_2933250735495012355:qk]' scope='rows' value='Average Age Adjusted Death Rates' />
+            <encoding attr='space' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]' field-type='quantitative' max='2022' min='2018' range-type='fixed' scope='cols' type='space' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[usr:Calculation_2933250735495012355:qk]' value='p0%' />
+          </style-rule>
+          <style-rule element='legend-title-text'>
+            <format attr='color' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade2:nk]' value='Glifford Grade'>
+              <formatted-text>
+                <run>Glifford Grade</run>
+              </formatted-text>
+            </format>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade2:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1' />
+                <format attr='mark-labels-mode' value='line-ends' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[usr:Calculation_2933250735495012355:qk]</rows>
+        <cols>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]</cols>
+      </table>
+      <simple-id uuid='{32E59620-000D-4932-B143-5422CD62B0C7}' />
+    </worksheet>
+    <worksheet name='Sheet 3'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Changes in Age Adjusted Death Rates Over Time in States that Modified their Gun Laws</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Firearms &amp; Gun Safety 2022 (Assignment 3 - Excel)' name='federated.064zjj20fi3aow0zq3ydw05wmtdq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.064zjj20fi3aow0zq3ydw05wmtdq'>
+            <column caption='Age Adjusted Rate1' datatype='real' name='[Age Adjusted Rate]' role='measure' type='quantitative' />
+            <column caption='AVG([Age Adjusted Rate1]) / 100' datatype='real' name='[Calculation_2933250735501041668]' role='measure' type='quantitative' user:unnamed='Sheet 3'>
+              <calculation class='tableau' formula='AVG([Age Adjusted Rate]) / 100' />
+            </column>
+            <column datatype='integer' name='[Change?]' role='measure' type='quantitative' />
+            <column caption='Grade1' datatype='string' name='[Grade]' role='dimension' type='nominal' />
+            <column caption='State1' datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Change?]' derivation='Attribute' name='[attr:Change?:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Grade]' derivation='Attribute' name='[attr:Grade:nk]' pivot='key' type='nominal' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2933250735501041668]' derivation='User' name='[usr:Calculation_2933250735501041668:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[attr:Change?:qk]' included-values='in-range'>
+            <min>1</min>
+            <max>1</max>
+          </filter>
+          <slices>
+            <column>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[attr:Change?:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]' field-type='quantitative' max='2023' min='2017' range-type='fixed' scope='cols' type='space' />
+            <format attr='title' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[usr:Calculation_2933250735501041668:qk]' scope='rows' value='Average Age Adjusted Death Rate' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[usr:Calculation_2933250735501041668:qk]' value='p0%' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[usr:Calculation_2933250735501041668:qk]' field-type='quantitative' max-size='1' min-size='0' type='quantsize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <text column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[attr:Grade:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='size' value='2' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[usr:Calculation_2933250735501041668:qk]</rows>
+        <cols>([federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:State:nk] * [federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk])</cols>
+      </table>
+      <simple-id uuid='{566E6AEA-A91C-48AA-AD3F-2E24BFAAD82E}' />
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Average Overall Firearm Death Rates by State Ranking</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Firearms &amp; Gun Safety 2022 (Assignment 3 - Excel)' name='federated.064zjj20fi3aow0zq3ydw05wmtdq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.064zjj20fi3aow0zq3ydw05wmtdq'>
+            <column caption='Age Adjusted Rate1' datatype='real' name='[Age Adjusted Rate]' role='measure' type='quantitative' />
+            <column caption='[Age Adjusted Rate1] / 100' datatype='real' name='[Calculation_2933250735481761794]' role='measure' type='quantitative' user:unnamed='Sheet 4'>
+              <calculation class='tableau' formula='[Age Adjusted Rate] / 100' />
+            </column>
+            <column datatype='string' name='[Grade2]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;A- to A&quot;' value='A' />
+                <alias key='&quot;B- to B+&quot;' value='B' />
+                <alias key='&quot;C- to C+&quot;' value='C' />
+                <alias key='&quot;D- to D+&quot;' value='D' />
+              </aliases>
+            </column>
+            <column-instance column='[Calculation_2933250735481761794]' derivation='Avg' name='[avg:Calculation_2933250735481761794:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Grade2]' derivation='None' name='[none:Grade2:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[avg:Calculation_2933250735481761794:qk]' scope='cols' value='Average Age Adusted Death Rates' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade2:nk]' value='64' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[avg:Calculation_2933250735481761794:qk]' value='p0%' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+          </pane>
+        </panes>
+        <rows>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade2:nk]</rows>
+        <cols>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[avg:Calculation_2933250735481761794:qk]</cols>
+      </table>
+      <simple-id uuid='{53EDFBB4-8F92-45CD-B6E3-1AB0D5355C00}' />
+    </worksheet>
+    <worksheet name='Sheet 5'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Relationship Between Gun Law State Ranking and Age Adjusted Death Rates in 2022</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Firearms &amp; Gun Safety 2022 (Assignment 3 - Excel)' name='federated.064zjj20fi3aow0zq3ydw05wmtdq' />
+          </datasources>
+          <datasource-dependencies datasource='federated.064zjj20fi3aow0zq3ydw05wmtdq'>
+            <column caption='Age Adjusted Rate1' datatype='real' name='[Age Adjusted Rate]' role='measure' type='quantitative' />
+            <column caption='[Age Adjusted Rate1] / 100' datatype='real' name='[Calculation_3475934490072788992]' role='measure' type='quantitative' user:unnamed='Sheet 5'>
+              <calculation class='tableau' formula='[Age Adjusted Rate] / 100' />
+            </column>
+            <column caption='Grade1' datatype='string' name='[Grade]' role='dimension' type='nominal' />
+            <column datatype='integer' name='[Gun LawStrength(Ranked)]' role='measure' type='quantitative' />
+            <column caption='State1' datatype='string' name='[State]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column datatype='integer' name='[Year]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_3475934490072788992]' derivation='None' name='[none:Calculation_3475934490072788992:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Grade]' derivation='None' name='[none:Grade:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Gun LawStrength(Ranked)]' derivation='None' name='[none:Gun LawStrength(Ranked):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[State]' derivation='None' name='[none:State:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Year]' derivation='None' name='[none:Year:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]' included-values='in-range'>
+            <min>2022</min>
+            <max>2022</max>
+          </filter>
+          <slices>
+            <column>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='title' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Calculation_3475934490072788992:qk]' scope='rows' value='Age Adjusted Death Rate' />
+            <encoding attr='space' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Gun LawStrength(Ranked):qk]' field-type='quantitative' max='51' min='0' range-type='fixed' scope='cols' type='space' />
+            <format attr='title' class='0' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Gun LawStrength(Ranked):qk]' scope='cols' value='Gun Laws Ranked by State' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Calculation_3475934490072788992:qk]' value='p0%' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='fill-above' id='refline0' value='#00000000' />
+            <format attr='fill-below' id='refline0' value='#00000000' />
+            <format attr='line-visibility' id='refline0' value='on' />
+            <format attr='line-pattern-only' id='refline0' value='dashed' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:State:nk]' />
+              <text column='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='shape' value=':filled/circle' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Calculation_3475934490072788992:qk]</rows>
+        <cols>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Gun LawStrength(Ranked):qk]</cols>
+      </table>
+      <simple-id uuid='{F9AC255A-4783-483E-989F-95A71962E6B6}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]' show-domain='false' show-null-ctrls='false' type='filter' />
+            <card pane-specification-id='0' param='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Age Adjusted Rate:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Age Adjusted Rate:qk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[sum:Age Adjusted Rate:qk]</field>
+          </color-one-way>
+        </highlight>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{85A30ADC-F971-4391-B1FB-F59197C45257}' />
+    </window>
+    <window class='worksheet' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Age Adjusted Rate:qk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Calculation_2933250735481761794:qk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade2:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{8C2E6BFF-DE99-48D7-A818-C8E9629301DD}' />
+    </window>
+    <window class='worksheet' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade2:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade2:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{9AB76499-31FD-4CB2-B9E7-81C52941E78B}' />
+    </window>
+    <window class='worksheet' name='Sheet 3'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <highlight>
+          <color-one-way>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[attr:Grade:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Age Adjusted Rate:qk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:State:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{7D4EEA68-E8D9-4B65-BBBB-035CC373A5F1}' />
+    </window>
+    <window class='worksheet' name='Sheet 5'>
+      <cards>
+        <edge name='left'>
+          <strip size='106'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Calculation_3475934490072788992:qk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Grade:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:State:nk]</field>
+            <field>[federated.064zjj20fi3aow0zq3ydw05wmtdq].[none:Year:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{F6EFE457-FF6B-4B2B-A476-0E712AD58064}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAC7UlEQVR4nO3XMWpUURiA0as8ZwpTiTLEBdgkgpDtZDMuQQQLlxCbgKtwBUK0EEWGVCky
+      0VEDYyEIoo0gGcx3Tve498JfvI/73o3VarWZpmlA0TRN05jP59ueA7bi5rYHgG0SAGkCIE0A
+      pAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECa
+      AEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmA
+      NAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgT
+      AGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQ
+      JgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkC
+      IE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDS
+      BECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0A
+      pAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECaAEgTAGkCIE0ApAmANAGQJgDSBECa
+      AEgTAGkCIE0ApAmANAGQJgDSBECaAEgTANfacnk6Tk7ejouLz39cn654HrgSnz6tx9On78fx
+      8WJ8/Xpv7O19GM+e3R07O7d/2ScArqUXLz6Mo6MHP5/PzzdjNrv12z6fQFwLZ2er8fjxq3F5
+      eTnGGOPgYGc8fPju5/pi8WXMZrPfzrkB+O9tNpvx5Mnr8ejRnTFNP17p/f3d8fz5t/Hy5Zvx
+      8eNmHB7e/+PZG+v1ejOfz69yXvjnlsvTsbu7+OtzAiDNPwBpAiBNAKQJgDQBkCYA0r4DCh9C
+      xV0EUVYAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      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
+      IfWiAAAAAElFTkSuQmCC
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 3' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAXIUlEQVR4nO3deXCbd53H8fej25Z8yLcdO4djJ7WdpolzNE0bSA960IMU2gJlYadQZllg
+      pgMLy+wxTFmGgWULLLCFYY8WyjI9gKUEeqY0bdMjR9scTpzbSXxEjuVTsiVLeo79wzhNsJLo
+      sGTLz/c1k+lUyaPvT7Y+evQ8z+/7exTDMAyEMCnLdDyJZEjkqmkJwOjo6HQ8jRBZNy0BECJX
+      SQCEqUkAhKlJAGY5wzDkJEMGSQBmuVgsRiQSmelhzFlzOAAGfl83Pb1+AKJjw4Ri8f9lMBjM
+      4rjmEpXg8DB+/wDDgQAxTT/vb0Oh0AyNK3G2mR5A5hiEY1BbU0h7WxtOm46aFyI2OoLLZcVp
+      t9He4aN5URVDY1GcFh13cQW11eUzPfAcojE6PMJQOIorz8bAwCDhcAS3S0FVXOQrEfaeGWHt
+      mlVYLcpMDzauObwHUFD0CD1n+kEBq8OFwwqKAgXeMpwOO+WlXgxDx+VyzfRgc5QFh8uFOz8P
+      h92Kw+WhtrIcUFAAi92Jy64QVfVLPdGMUYwJaT1JMBikoKBgmoYkzhWLxdA0TUKaIWe/AqVz
+      NTccDqMoqe3idF3HYkl+R5TqdulsO3lGJpvjVVUVXddRVTVrNSc/EFP5nc7E7yWdmjaYeKHp
+      foKnur2qqthsyR+KpLpdOtsahoGu61it1qzVjEaj6HpqX9NSranrE19ZUg1stn8v6dScw8cA
+      QlyaBECYmgRAmJoEQJiaBECYmgRAmJoEQJhaQidPDcPA191JcVkFfX39lBW70W35OGwKLqcz
+      02MUImMSvHqg43TmceLoEWKxGMFwIUY0jKe4nIW1VSlfqQTSusqZ7ZqT26YydSSd16lpWlZ/
+      RpOvb/KCWDZqprNtOjUTC4Ae49DhY5SXe4lGx6mpW0i0/ySHT/upn1+DxWLJqat/6VwJVhQl
+      q1eCJ9+E2fwZmelKcEJbKVYXV29Yf/6D7iVUL0ipphCzhhwEC1OTAAhTkwAIU5MACFOTAAhT
+      kwAIU5MACFOTAAhTkwAIU5MACFOTAAhTkwAIU5MACFNLsCFG5fiRYxSVlDIwMILXmw9WJ3lO
+      F4UF7kyPUYiMSXAStRVvSTFnen0odjuhcIxQ0I/hLKTZvSDnmiCkIebipCFmSoUIpzp9VFdX
+      Mjw8RGlFFYV5Nrr6Q1gsFmmIyWBNaYjJbM2EG2JaV60EoLqmZuLB/HmUVqZUU4hZQw6ChalJ
+      AISpSQCEqUkAhKlJAISpSQCEqUkAhKlJAISpSQCEqUkAhKlJAISpSQCEqUkAhKkl1RDjrapl
+      uP8MRW4XmtVJnitPGmJETku4IabYW0w40E/fYIB8p41Bfz+Go5DmRmmIyWRNaYjJbM2EG2K6
+      unopr6rA7bRSXFaF02Gn0z8mDTEZrikNMZmtmXBDzMpVKwConTfREJPnqqGkIqWaQswachAs
+      TE0CIExNAiBMTQIgTE0CIExNAiBMTQIgTE0CIExNAiBMTQIgTE0CIExNAiBMTQIgTC2phpj8
+      giICw0N4ioqwOZzkS0OMyHFJNcTYXG4MNYKm6wz09uB3FNDSuDDnmiCkIebipCFmSoUIXd29
+      eIvcjEZ1GhbX43Ha6OqXhphM15SGmMzWTLwhpnXFeY+5KqqlIUbkPDkIFqYmARCmJgEQpiYB
+      EKYmARCmJgEQpiYBEKYmARCmJgEQpiYBEKYmARCmJgEQpiYBEKaWREPMUTRDYXw8gruwAKui
+      UFxagbdQGmJE7kpwErWFvHw3EVWntsxNd8iOGjzD4eFx1l6xNOeaIKQh5uKkIeYvGTECgTHK
+      q8o5PRSksb6acMiNc2BYGmIyXFMaYjJbM7GGGIuTppYmAMpKywBwewpY5ClIqagQs4UcBAtT
+      kwAIU5MACFOTAAhTkwAIU5MACFOTAAhTkwAIU5MACFOTAAhTkwAIU5MAJOH5559n27ZtMz0M
+      MY0kAEmIRCIpTYUWs1eCDTE6Bw8doaasiM6eXhyeQhwWBW9ZpakaYqqrqykokBmwc4liJPiR
+      5uv14USn2+ejqLKO8FAvwxE7a1dcRjAYxO1OLQi6rqc07zzV7dLZVtMm5slbrdkbr6qqaJqG
+      0+nMWs3Jt4SiKFmrmc626dRMuCUyMDhEYUkJeZ5iaipKiRa6cQ2apyFG03W+/cvXURT44p1r
+      KS3Kz3hNkIaYTNdMrCFGsbG0uXnif6om/mP3eHB7PCkVzUXHugdp6+gj32nnc99/hjWX1XDz
+      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
+      RK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 4' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAEyUlEQVR4nO3dPW9cRRiG4eecsw5ggVESsEyHREeKgCjS8BP5AdQ0UNNR0NIhFBFQcFA+
+      FCN/xM6ukWMr+Oy8FFEMKA2rzDu297mvH/COZ6VbO2vv+HQREQJM9ef9AwDniQBgjQBgjQBg
+      jQBgLSWAiFCrXy61/CUWe3q9dS7i65f2DlBKyRr9H/P5vMk6Lddaxj21DGCRPXEEgjUCgDUC
+      gDUCgDUCgLVJ1uAvv/1RW3t/Zo0/E5K69FXarrWse1LDtf7vOmkBPNyeanNrmjUeqIIjEKwR
+      AKwRAKwRAKwRAKwRAKwRAKwRAKwRAKwRAKwRAKwRAKwRAKwRAKwRAKwRAKxVDCD04Ldf9OyU
+      /7aOy6NaABFFu0929fjRH7VGAumqXYmM8bk+/vRzxelJrZFAumoB9CurWluRpCtN/7cl8Dr4
+      EAxrBABrBABrBABrBABrBABrBABrBABrBABrBABrBABrBABrBABrBABrBABrBABrXSTcXokI
+      Pd6d6a8x/2LMvMw19EP6Oi3XWsY9lSiSOvVd/nMiF9lTWgClFA1D/gs7jqMmk7SHXZ7LWsu4
+      p1KKJKnv8w8di+yJIxCsEQCsEQCsEQCsEQCsEQCsEQCsEQCsEQCsEQCspf0N/NeHT3T8fMwa
+      f6aU0uTP6y3XWsY9vfzGTdfgu0CL7CktgK++u63NrWnWeKAKjkCwRgCwRgCwRgCwRgCwRgCw
+      RgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwRgCwVi2AiND9e3d1eHRSaySQrt47QIRms6mm
+      01m1kUC2qkegvu81jvn3gIFaqt0J7vpen3x2S9I/F6CBi44PwbBGALBGALBGALBGALBGALBG
+      ALBGALBGALBGALBGALBGALBGALBGALBGALBGALCW9pC8mx9taP3qO1njz0REkycPtlxrGfck
+      vbwkdbFevy4Srm9FhEopGoah9uhXjOOoySSt43NZaxn3VEqRpCaPZF1kTxyBYI0AYI0AYI0A
+      YI0AYI0AYI0AYI0AYI0AYI0AYI0AYC3tSyBffPODHuwcZo0HqkgLYP/wWNsHR1njgSo4AsEa
+      AcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcBavQAidP/eXW3v
+      HVQbCWSr+A4Q6q+8pfX3rtYbCSSrF0DXa231De0/5R4wLo+qd4Kvvb8h6cUDMoDLgA/BsEYA
+      sEYAsEYAsEYAsEYAsEYAsEYAsEYAsEYAsEYAsEYAsEYAsEYAsEYAsJb2jLDra6vauHaaNf5f
+      QlLXYJ2Wa7GnVmt1kXB7JSJUStEwDLVHv2IcR00maR2fy1rLuKdSiiSp7/MPHYvsiSMQrBEA
+      rBEArBEArBEArBEArBEArBEArBEArBEArBEArKV9CeTr7+9o5+mzrPFnIkJd1+ZLVq3WWsY9
+      tbTIntICuP37jja3plnjgSo4AsEaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAaAcAa
+      AcAaAcAaAcAaAcBatQBKOdbPP93R3sFhrZFAuorvAHOtf/ChTo5m9UYCySoGsKL93Ud6+93r
+      9UYCyardCe77N3Xj5g1JLy4lA5cBH4JhjQBgjQBgjQBgjQBgjQBg7W+RaGO4bvlnrgAAAABJ
+      RU5ErkJggg==
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 5' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAQ70lEQVR4nO3dS3Bb130G8O/i4k28CBIPvh+RZUuW44xMqa7jth7HqqPRTKbT8aLttNNV
+      POm03TTtTDddZ9pF20WnaRZtl83O6bQTdZG4kWPH8bi2mlZWJUqUSIoPPEgQIEi87z1d2JAp
+      AiQPkosLgOf7LanDc4+I813ce3H+OJoQQoBIUQ4rOukkQ7Jtu9Wn1cdnn4PdpyUBME1Tuq1h
+      GJa266RtJ3/cXvbZjb9nN/rspG0nfcqOtZPX6Kg+LQkA0aBiAEhpDAApjQEgpTEApDQGgJTG
+      AJDSnDKNhFnH/cX7cDhd2CuVEQoHoDucCIZHMBzyd3uMRF0jFQBoTng9OlL5Cp6bHcaDHQ0o
+      ZrFVKCN8/gxM05T+MMg0TTQaDcvaddK2OUaZD1p62We3/p5W99np8TvpU2asnb5G7fqUC4BR
+      Q7kuMDsZx8PMLp5+ahal4hBS2wU4HA4IIaDrulRXjUYDTufJh5Vt10nb5iR1OE6+8utln4Zh
+      wOFwQNO0vu6zOaGsfD2FENA0TWo+dfIaHTVHpWaY5vTg7NmnAQCxWBwAEAxHEAxHZH6dqG/x
+      JpiUxgCQ0hgAUhoDQEpjAEhpDAApjQEgpTEApDQGgJTGAJDSGABSGgNASmMASGlyBTFCYGNt
+      BcOjCWQy2xgJ+yFcfridGrweT7fHSNQ1msx3gwrRQC67jVQqjXq9Bt0fhKhXEYyMYmYyCcMw
+      pNaZA5+uzZZZOy/brpO2zf+qzFh72Wc3/u/d6LPXx7fiNZIuibyzuITY6DBqtTImpudQzS5j
+      cXMLc9PjLIixuE8WxPRZQYxD9+HLL7/05A+HzmJsVua3ifoXb4JJaQwAKY0BIKUxAKQ0BoCU
+      xgCQ0hgAUhoDQEpjAEhpDAApjQEgpTEApDQGgJTGAJDSJCvCGli6ew+6y41SHQj6NQihIzQc
+      4xZJNNAkK8IENtfXUCqVUa9X4A1EUS5uo2R6cfHCU6wIs7jPQanI6vXxbasIg1lFPl9EfCyB
+      3HYO4+MJ1MpBZLhFEivCoEBFmKZ7cf7CeQDA6MgIAMDjCiMYCsv8OlHf4k0wKY0BIKUxAKQ0
+      BoCUxgCQ0hgAUhoDQEpjAEhpDAApjQEgpTEApDQGgJTGAJDSpLdIWl9dRjQ5hVIxD48TMJ1+
+      eJw6vF5ukUSDS7IgxkAuu4VytYrVzS1MjARQ2C8jEI5hdopbJFnd56AUpPT6+DZukVTD4r2H
+      iCVGYdTLGB0/B3dmDfcz25if4RZJVvfJghj7CmKk3gFOYhgGA6BoAAzDsDwApmnaFgDeBJPS
+      GABSGgNASmMASGkMACmNASClMQCkNAaAlMYAkNIYAFIaA0BKYwBIaQwAKY0BIKV1tkWS14/y
+      bg4OfwgeXUdkJM4tkmigSVaEmdhYW0MkEkGusI8hrwPpdArFhgcLz51lRZjFfQ5KRVavj2/j
+      Fkk17O7uwxBAuVJBLD6LKY8f2Ry3SFK9IAYY7Iow6S2Szj177skfut0IBIMyv07Ut3gTTEpj
+      AEhpDAApjQEgpTEApDQGgJTGAJDSGABSGgNASmMASGkMACmNASClMQCkNMmCGBNrK8uIjCaw
+      tZVDNOyF+GyLJJ/P2+0xEnVNR1skrW1mMJMMYSlbhdsswxcaxfz0GAtiLO5zUApSen18W7dI
+      und/GclkDCubO3jm/LMoplawlNnBmdkJFsRY3CcLYvqsIMah+/DiS7/0xM+Gps8gOS3z20T9
+      izfBpDQGgJTGAJDSGABSGgNASmMASGkMACmNASClMQCkNAaAlMYAkNLaBqBRq2CvVMaJy0SJ
+      BlzbAPzPx+/gu//8r6jYPRoim7WsBhXChM8fx5mnvbw+olOvzXJoAxtr69CGoo//UQgD/3fn
+      HsZGQni0kYF7KACX7kB0NMktkmigtQRA01yIjHjx/ruf4KVf+2XoADRNx/BwGKZpAMKAbyiA
+      8k4ad5cquPz8M48LDmSYpolGo2FZu07aNsfYLGLp1z679fe0us9Oj99JnzJj7fQ1atdnSwCM
+      ehkNEcQLl8+hWTskRAO7uR2Eo1H4ghGMx0dRCwXg4xZJrAjDKasIW/vkFipaCYv3dnD5Vz79
+      maY58fT58wCA5GftXIEAhgKBEw9O1M9aAjB+7gJc2zs4O61DrsydaHC1vG+7PD6UCttYWVmD
+      0YsREdmoJQClwjbuPliFaXD60+nXcgnkCwWxt70DTbhw8nMNImuVaw1ACPglH6r8olreATTN
+      jYsL52AYDn4QRrba3i3hj//2+/izb/8ApUrdlmO2fYbkcHpQzOe4FohstV+uI1eswO2so1Jr
+      wO91df2YbQNQyG1gv2jwJphsNRUP4VtffxVO3YFoyGfLMduuBfL7o3jmUhz2DIHocwG9ipGR
+      EduO13KZn168haIrAmMni7JtwyACarUa3nnnHdy6dcu2Y7YEIDCagFnMwRuKwJ77cKLPORwO
+      qXVVVmm5BHI4nahVKoDm5ifBZCuXy4UXX3wRsVjMtmO2vAP4wyMYDvhQzOf5OQDZyuFwYGZm
+      Bl6vfZuutH3U70AJW1usB6PTr+1TIKGHMD2lHfiZgaUHK5gZj+H+agaRoBtwuOEfCiIcZEEM
+      Da62FWHb2zsIx5Nwf/YTTdMxNORDOp2BJqqo1JwoFVPI5vdx4ewsC2Is7pMFMT0siNE0FyKR
+      IG7+9AM888Xz8OHTgpitVBqjiQRQriGeHEMt4MX69j4LYlgQc7oKYgAgHPBhZHL68T9qmhPP
+      felLAICxsTEAwJA3geHRE49N1NfanrZ8gRB0s8GnQHTqtQRAmBWkNrLwBTxYWlzuwZCI7NMS
+      gMpeCYsPH2J3u4jZp2Z6MSYi27QEwBeK4pUvX0LVNOCU3PyaaFC1BCC3toR//+GPoTl9cpsI
+      E/W5UrWOar394v6WAAxPzONrX30NU8ko6wHoWOVqA5Wa3LP9Xknl9vCHf3Mdf/6dH6Jcba0y
+      a/M5gIZiIYt6XWdFGB2psF/Fn/zdf8ChafjrP3odQb+n10Nqa79cw26pioZhot4w4Ts0zCOu
+      cgTWNzZZE0xHqlTryO9VoGkaKrWG7QEolqq4/TCD558ag9d99MX6/PgwvvX1V+F1OxEaah1j
+      29+sVkxEwjru3l/Bs2f4JIhaxYeH8JffuAIhBGKRIduP//ff+y/85NYj/OavnsPvf/X5I9sV
+      i0Ukwy4Eg8G2/972JO/2uCGgw+3kUyA6mrO+i7FIby59xkYC8Lh0JIaPDp9pmrh58yaKxSKu
+      X7+Ovb29ljYtAdjNruPu8gZ28nuYm522dtR0omx+H3/xjz/CP33/JkzT/ruwD26v4U+//QO8
+      /8mjY9sJIfDee+/ZWr540O9e+SK+881reP3yF45tJ4SAEAJOp7Pteq3WgphQFBPxKCLhIG+C
+      e+DO6hY+Wc7i7Y+XUWvY/xzu3f9dxcPNPH78s1Wp9kYPvkGw0Wjgxo0fobJfOHZxn8PhwMLC
+      AiKRCK5cuQK/v3Xpfss9gNPjw4XnL+LC0ZdV1EWXnpnA73zlAqaTYXhc9ldl/9arFxAN+nBl
+      4fgzq6ZpeOWVVxCJRGwa2edqtRoymQz8fj88Hg+i0eiRbQOBwLHLq6U+6xJCoFKpwOfzoVwu
+      w6EJwOGG7pBbCkvyvG4n3njlnPTSZatNxEL4vV9/7sTXVdM0jI+P9+QdQNM0uFwumKYpvQz/
+      yL6EROWBEAbuLi7h7Pw03vvwZ5iMhbFXbWA0Po5kbPjxWnMZhmFIDVq2XSdtO1m730mfmqZJ
+      TVaZPpeWlpDP53Hx4kXL+my2OylUH374IVZXV3Ht2jWkUinMzs5aenyZdkII6YndSZ9CCLl7
+      gCM7MepYXX2ERqOG4fgYQl4Ndx7IXSf2i16cUTt1+/Zt3Lt3D7du3ZKu4JJ10v+/WWBy584d
+      3Lhxw9Jjd8LO10nyHcBEIV+Axz8El+6ArjtgmgLVahV+v7+jszUrwo7vc2trC0IIRKNRS6ui
+      ZN4BVlZWsLGxgYWFBQgh4Ha7j2wLfHpmNQzD8oow2XcAKyrCpAJwEgbg5D6/9+4dvPPfK/iD
+      31jAU5PHf/XfIJVEDnoAuNrBJm9//BBLGzv4eHGz10OhA/gIxybf+NoCPrq7gdcvn+n1UOgA
+      BsAm52djODs5zMfGfYaXQDYQQuCtt95CvW7PrickjwGwQS6Xw/r6Oj766COsr6/3ejh0AN+P
+      beB0OvHmm28in88jHo/3ejhKMwwDu7u7SKVS2NraYgDsEA6HAeDYNSvUHYZhoFAoYHNzE7lc
+      DvV6HaFQCGNjY5ifn2cA6HQ5fIav1+sIBoNIJpM4c+YMPJ4n6xcYABpopmmiUCg8MeEPnuE9
+      Hk/n3w1Kp4thmvh4cRMTsTDGR9uXBg6KgxM+nU7DNM2WCd8JBkABP/1kDX/1Lz9BfHgI//DN
+      a9AlV+72g6PO8MlkEjMzM22LXDrBAChgNOxHwOfGVDzU9ytiTdNEPp9HJpNpmfCHz/Cy+w0c
+      h4vh+rDPbixcK+5X4PO44HRat8jMisVwh8/wtVoNwWAQ4+PjiMVix17SdG1/gMOEMHB/aRlT
+      YzE8XF6FLxiC2+XGUCDELZIGwI0bNzAzM4NEIgFd9/b0XeC4S5r5+Xm43W5LKr1kSQVA03QE
+      An64PT4EgiHoTgd2ttLI5vfx3NNz3CLJ4j6t/ns+evQIpmni+vXruHr1KiYnJy0Zp0xbIQTe
+      /vAOvnv9A7x8bgQz8SBCoRASiQReeOGFlpoDwzB6u0VS+w4a2E5nUN7bR8UwMT83C7/Hg43t
+      IrdIGoBLIL/fD6/Xi6tXr2JmZka6Muwk7bZIMk3z8XP4bDaLer2Of3vvAdZ3aig4YnjttZdP
+      7NPOLZJ4D9CHfQ5SQUyj0cD+/v4TE755SdO8hl/L7OI/bz7ElUtfQDIaOLFPOwti+BSIOnL4
+      DF+pVDA8PIxkMom5ubm2N62T8RB++yvP9uVS8P4bEfWVdpc0zTP83NwcdF0/cWK///77ePTo
+      Ed544w3pbw+xCwNAT2g+pclms8hms6jVagiHw23P8M3HoCdpNBpwuVyWf8uFFRgAxR0+w9dq
+      NQQCAUxMTGBubg5ut/sXfmw6OTkJl8vVd2d/gAFQTrsJf/CSxu12S3+4JWtubg5TU1N9+Sk0
+      A3DKNSf8xsYGtre32074fpyYdmEATpmjzvDxePzxWhqVJ/xhDMCAE0Ign88fe0mjaVpHnwOo
+      hAEYMO2ew0ciEV7S/JwYgD7XnPDpdBqZTOaJM/zs7CycTmdffsA0KPiX6zPN5/CZTKblkubS
+      pUst1/BWrIlXGQPQY+3O8IFAAGNjY20nPFmLAbCZaZooFotIpVLIZDJPfGtBc8KbpskbVptI
+      b5FUKu3D7/cht7OLIa8LQvfA6QBcLle3xzjQDk74VCqFRqNx7CUN2Ut6i6R79x4gEvCiUilh
+      q2TCJRqIxsYwnhiBYRjSL2Lz7GZVu07aNv+rMmP9efsUQqBYLD6+pKlWq48LQEZGRqSKuLvx
+      f+9Gn70+vhWvu/QlULVcwr6uoVatYWb2DErph1hcXsN4YuTIzo8i27YbfVp9/MMT/uBN6+XL
+      l5+oeJI9UcjuOdbJOLvRZ6f99rLPo9pKb5G0v7cPt8cLwzDg9bphCqBRr8Pj8ShVEHP4Gr55
+      hk8mk4jH48de0pzGgphB3yFGsibYgUCw+YVKn17z6xqgd/glRIPo8IRvnuETiQQuXboEl8sF
+      TdP6cqUjnYxPgQ5pTviNjY3HX9NxcMIfPsPLFMNT/1I+AM0Jn06nkU6nH38vTSwW41MaBSgX
+      ACEECoVCy4Q//Fiyk3sQGlz/D/PxoGREy8hwAAAAAElFTkSuQmCC
+    </thumbnail>
+  </thumbnails>
+</workbook>
