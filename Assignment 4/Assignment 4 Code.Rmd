@@ -1,0 +1,134 @@
+---
+title: "Assignment 4"
+output: pdf_document
+date: "2024-10-22"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(tidyr)
+library(readr)
+library(ggplot2)
+library(sf)
+library(scales)
+library(tidycensus)
+library(maps)
+```
+
+## Data cleaning
+
+```{r}
+jobs_df <- read.csv("E:\\CUNY SPS\\Fall 2024\\DATA 608\\Assignment 4\\jobs.csv")
+
+length(na.omit(jobs_df$Mean_Salary))
+
+jobs_nomiss <- jobs_df %>% filter(!is.na(Mean_Salary))
+```
+
+```{r}
+print(unique(jobs_nomiss$Jobs_Group))
+print(unique(jobs_nomiss$Profile))
+
+jobs_nomiss <- jobs_nomiss %>% mutate(Profile = ifelse(Profile == "", "Mid-Level", Profile))
+
+jobs_nomiss$Profile <- factor(jobs_nomiss$Profile, levels = c("Lead", "Senior", "Mid-Level", "Junior"))
+```
+
+```{r fig.width=10, fig.height=6}
+avg_sal <- jobs_nomiss %>% 
+  group_by(Jobs_Group) %>% 
+  summarise(med_salary = median(Mean_Salary)) %>% 
+  arrange(desc(med_salary))
+
+ggplot(avg_sal, aes(x = reorder(Jobs_Group, -med_salary), y = med_salary)) + 
+  geom_bar(stat = 'identity', width = 0.5) +
+  labs(title = "Median Salary for Data Roles by Field", 
+       x = "Role",
+       y = "Median Salary") + 
+  theme_classic() + 
+  coord_flip()
+
+
+avg_sal_percent <- jobs_nomiss %>% 
+  group_by(Jobs_Group, Profile) %>% 
+  summarise(med_salary = median(Mean_Salary)) %>% 
+  mutate(prop_salary = med_salary / sum(med_salary)) %>% 
+  arrange(desc(med_salary))
+
+ggplot(avg_sal_percent, aes(x = reorder(Jobs_Group, med_salary), y = prop_salary, fill = Profile)) + 
+  geom_bar(stat = 'identity', width = 0.5) +
+  labs(title = "Proportional Median Salary for Data Roles by Position", 
+       x = "Role",
+       y = "Relative Salary") + 
+  theme_classic() + 
+  coord_flip()
+
+
+jobs_nomiss$Profile <- factor(jobs_nomiss$Profile, levels = c("Senior", "Lead", "Mid-Level", "Junior"))
+
+```
+
+```{r fig.width=10, fig.height=6}
+avg_state <- jobs_nomiss %>% group_by(State) %>% summarise(med_salary = median(median(Mean_Salary))) %>% arrange(desc(med_salary))
+
+avg_state <- avg_state %>% filter(State != "")
+
+avg_state$State <- tolower(state.name[match(avg_state$State, state.abb)])
+
+avg_state <- avg_state %>% filter(!is.na(State))
+
+states <- map_data("state")
+
+map_data <- left_join(map_data, avg_state, by = c("region" = "State"))
+
+centroids <- states %>%
+  group_by(region) %>%
+  summarize(long = mean(long), lat = mean(lat))
+
+centroids$state_abbr <- state.abb[match(centroids$region, tolower(state.name))]
+
+options(repr.plot.width = 10, repr.plot.height = 6)
+
+ggplot(map_data, aes(x = long, y = lat, group = group, fill = med_salary.x)) +
+  geom_polygon(color = "black") +
+  coord_map("albers", lat0 = 30, lat1 = 40) +
+  scale_fill_viridis_c(option = "turbo", na.value = "grey") +
+  labs(fill = "Median Salary", title = "Map of Median Salaries by U.S. State") +
+  theme_void() + theme(plot.title = element_text(hjust = 0.5, size = 16, face = "bold"))
+
+```
+
+```{r}
+unique(jobs_nomiss$Remote)
+```
+```{r}
+unique(jobs_nomiss$Profile)
+```
+
+```{r fig.width=15, fig.height=10}
+avg_state_heat <- jobs_nomiss %>%
+  group_by(Jobs_Group, State) %>% 
+  summarise(med_salary = median(Mean_Salary)) %>% 
+  arrange(desc(med_salary))
+
+avg_state_heat <- avg_state_heat %>% filter(State != "")
+
+avg_state_heat <- avg_state_heat %>% filter(!is.na(State))
+
+map <- avg_state %>% select(State)
+
+centroids <- centroids %>% rename(State = state_abbr)
+
+avg_state_heat <- semi_join(avg_state_heat, centroids, by = "State")
+
+avg_state_heat %>% ggplot(aes(reorder(Jobs_Group, -med_salary), reorder(State, med_salary), fill = med_salary)) +
+  scale_fill_gradient(low = "blue", high = "red") +
+  geom_tile() + theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(fill = "Median Salary",
+       x = "Job Title",
+       y = "State",
+         title = "Heatmap of Median Salaries by U.S. State")
+```
+
