@@ -1,0 +1,222 @@
+---
+title: "Assignment 5 Alt"
+output: html_document
+date: "2024-11-09"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(zoo)
+```
+
+## Load the data
+
+```{r}
+data <- readLines("https://www.nhc.noaa.gov/data/hurdat/hurdat2-nepac-1949-2016-041317.txt")
+
+##parse_hurdat function taken from https://rdrr.io/cran/HURDAT/man/get_hurdat.html
+
+hurdat <- parse_hurdat(data)
+```
+
+####Temperature data
+```{r}
+temp <- readLines("https://data.giss.nasa.gov/gistemp/graphs/graph_data/Global_Mean_Estimates_based_on_Land_and_Ocean_Data/graph.txt")
+
+header_temp <- grep("^[A-Z]{2}[0-9]{6}", data)
+event_temp <- setdiff(seq_along(data), header_lines)
+
+header_temp <- data.frame(raw = temp[header_temp])
+event_temp <- data.frame(raw = temp[event_temp])
+event_temp <- event_temp %>% slice(-(1:4))
+
+temp_df <- event_temp %>% separate(raw, into = c("Year", "No_Smoothing", "Lowess"), sep = "\\s+")
+
+temp_df <- temp_df %>% filter(Year > 1948)
+temp_df$Year <- as.numeric(temp_df$Year)
+
+```{r}
+hurdat <- hurdat %>% rename(Windspeed = Wind)
+
+# hurdat <- hurdat %>%  
+# mutate(
+#     WindSpeed = as.numeric(WindSpeed),
+#     Category = case_when(
+#       WindSpeed < 64 ~ "Tropical Storm",
+#       WindSpeed >= 64 & WindSpeed <= 82 ~ "Category 1",
+#       WindSpeed >= 83 & WindSpeed <= 95 ~ "Category 2",
+#       WindSpeed >= 96 & WindSpeed <= 113 ~ "Category 3",
+#       WindSpeed >= 114 & WindSpeed <= 135 ~ "Category 4",
+#       WindSpeed >= 136 ~ "Category 5"
+#     )
+#   )
+
+hurdat <- hurdat %>% mutate(Year = format(DateTime, format = "%Y"))
+```
+
+## Merge Temp
+```{r}
+hurdat$Year <- as.numeric(hurdat$Year)
+storm_temp <- hurdat %>% left_join(temp_df, by = "Year")
+```
+
+## Find Max Wind Speed by ID and separate hurricanes into Categories
+```{r}
+storm_temp_summary <- storm_temp %>% group_by(Key, Name, Year) %>% summarize(max_windspeed = max(Windspeed))
+
+storm_temp_summary <- storm_temp_summary %>% left_join(temp_df, by = "Year")
+
+storm_temp_summary <- storm_temp_summary %>%   mutate(
+    max_windspeed = as.numeric(max_windspeed),
+    Category = case_when(
+      max_windspeed < 64 ~ "Tropical Storm",
+      max_windspeed >= 64 & max_windspeed <= 82 ~ "Category 1",
+      max_windspeed >= 83 & max_windspeed <= 95 ~ "Category 2",
+      max_windspeed >= 96 & max_windspeed <= 113 ~ "Category 3",
+      max_windspeed >= 114 & max_windspeed <= 135 ~ "Category 4",
+      max_windspeed >= 136 ~ "Category 5"
+    )
+  )
+```
+
+##Find Frequency of Storms by Year
+```{r}
+storm_temp_freq <- storm_temp_summary %>%
+  group_by(Year, Category) %>%
+  summarize(freq = n(), .groups = 'drop')
+storm_temp_freq <- storm_temp_freq %>% left_join(temp_df, by = "Year")
+
+storm_temp_freq_overall <- storm_temp_summary %>%
+  group_by(Year) %>%
+  summarize(freq = n_distinct(Key))
+```
+## Average max windspeed per year
+```{r}
+windspeed_summary <- storm_temp_summary %>% group_by(Year) %>% summarise(avg_windspeed = mean(max_windspeed))
+```
+
+
+##Graph for Temp Changes
+
+```{r}
+ggplot(storm_temp_summary, aes(x = Year)) + 
+  geom_line(aes(y = Lowess), linetype = "dashed", color = "#000000", size = 1) +  # Adjust size here
+  labs(title = "Changes in Global Temperature and Wind Speed Over Time", 
+       x = "Year",
+       y = "Global Temperature Anomoly (°C)") + 
+  theme_classic()
+```
+
+
+```{r}
+storm_temp_summary$Lowess <- as.numeric(storm_temp_summary$Lowess)
+scale_factor <- max(storm_temp_summary$Lowess, na.rm = TRUE) / max(storm_temp_summary$max_windspeed, na.rm = TRUE)
+
+ggplot(storm_temp_summary, aes(x = Year)) + 
+  geom_line(aes(y = Lowess), linetype = "solid", color = "blue") + 
+  geom_point(aes(y = Lowess), color = "blue") +
+  geom_line(aes(y = max_windspeed * scale_factor), linetype = "solid", color = "red") + 
+  scale_y_continuous(
+    name = "Global Temperature (°C)",
+    sec.axis = sec_axis(~ . / scale_factor, name = "Average Wind Speed (scaled)")
+  ) +
+  labs(title = "Changes in Global Temperature and Wind Speed Over Time", 
+       x = "Year") + 
+  theme_classic() +
+  theme(
+    axis.title.y.left = element_text(color = "blue"),
+    axis.title.y.right = element_text(color = "red"))
+
+
+ggplot(windspeed_summary, aes(x = Year, y = avg_windspeed)) +
+  geom_line(color = "red", alpha =.5) +
+  geom_smooth(method = "loess", color = "blue") +
+  labs(title = "Average Hurricane Windspeed Over Time", x = "Year", y = "Average Windspeed") +
+  theme_classic()
+
+```
+
+```{r}
+storm_temp_freq_overall <- storm_temp_freq_overall %>% left_join(temp_summary, by = "Year")
+
+
+windspeed_summary <- windspeed_summary %>% left_join(temp_df, by = "Year")
+windspeed_summary$Lowess <- as.numeric(windspeed_summary$Lowess)
+windspeed_summary$No_Smoothing <- as.numeric(windspeed_summary$No_Smoothing)
+cor.test(windspeed_summary$avg_windspeed, windspeed_summary$Lowess, method = "spearman")
+cor.test(storm_temp_freq_overall$freq, storm_temp_freq_overall$avg_temp, method = "spearman")
+
+ggplot(windspeed_summary, aes(x = avg_windspeed, y = Lowess)) +
+  geom_point() +
+  geom_smooth(method = "loess", color = "blue") +  
+  labs(
+    title = "Relationship Between Average Wind Speed and Global Temperature",
+    x = "Average Wind Speed",
+    y = "Anomoly Temperature (°C)"
+  ) +
+  theme_classic()
+
+ggplot(storm_temp_freq_overall, aes(x = freq, y = avg_temp)) +
+  geom_point() +
+  geom_smooth(method = "loess", color = "blue") +  
+  labs(
+    title = "Relationship Between Storm Frequency and Global Temperature",
+    x = "Strom Frequency",
+    y = "Anomoly Temperature (°C)"
+  ) +
+  theme_classic()
+```
+
+## Plotting the Frequency of Hurricane Types over the Years
+```{r, fig.width=12, fig.height=8}
+storm_temp_freq <- storm_temp_freq %>% filter(!is.na(Category))
+
+storm_temp_freq$Lowess <- as.numeric(storm_temp_freq$Lowess)
+
+freq_range <- range(storm_temp_freq$freq, na.rm = TRUE)
+lowess_range <- range(storm_temp_freq$Lowess, na.rm = TRUE)
+
+ggplot(storm_temp_freq, aes(Year)) + 
+  geom_smooth(aes(y = freq, color = Category, fill = Category), method = "loess", se = FALSE, size = 1) +
+  geom_line(aes(y = scales::rescale(Lowess, to = freq_range), group = 1), color = "black", size = 0.8, linetype = "dashed") +
+  facet_wrap(~ Category, nrow = 2) +
+  scale_y_continuous(name = "Storm Frequency (Smoothed)") +  # Remove secondary axis here
+  labs(x = "Year", title = "Storm Frequency and Global Temperature Changes by Storm Category") +
+  theme_classic() +
+  theme(legend.position = "bottom")
+```
+```{r}
+storm_temp_mov_avg<- storm_temp_freq %>%
+  group_by(Category) %>%
+  arrange(Year) %>%
+  mutate(freq_ma = rollmean(freq, k = 5, fill = NA, align = "right"))
+
+freq_range <- range(storm_temp_mov_avg$freq, na.rm = TRUE)
+lowess_range <- range(storm_temp_mov_avg$Lowess, na.rm = TRUE)
+
+# Plot with pre-calculated ranges
+ggplot(storm_temp_mov_avg, aes(Year)) + 
+  geom_col(aes(y = freq, color = Category, fill = Category), position = position_dodge(), alpha = 0.6) +
+  geom_line(aes(y = freq_ma, group = Category, color = Category), size = 1) +
+  geom_line(aes(y = scales::rescale(Lowess, to = freq_range), group = 1), color = "black", size = 0.8, linetype = "dashed") +
+  facet_wrap(~ Category, nrow = 2) +
+  scale_y_continuous(
+    sec.axis = sec_axis(
+      ~ scales::rescale(., from = freq_range, to = lowess_range), 
+      name = "Temperature"
+    )
+  ) +
+  labs(x = "Year", y = "Frequency", title = "Hurricane Frequency (5-Year Moving Average) and Temperature Trends by Category") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+```{r}
+ggplot(storm_temp_summary, aes(x = Year)) + geom_histogram()
+
+ggplot(storm_temp_freq_overall, aes(x = Year, y = freq)) + geom_line(color = "red", alpha =.5) +
+  geom_smooth(method = "loess", color = "blue") +
+  labs(title = "Hurricane Frequency Over Time", x = "Year", y = "Frequency") +
+  theme_classic()
+```
+
