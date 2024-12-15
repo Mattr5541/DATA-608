@@ -1,0 +1,428 @@
+---
+title: "Assignment 7 Code"
+output: html_document
+date: "2024-12-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(data.table)
+library(dplyr)
+library(tidyr)
+library(lubridate)
+library(stringr)
+library(ggplot2)
+library(maps)
+```
+
+## Load the Data
+
+```{r}
+reliance_df <- read.csv("E:\\CUNY SPS\\Fall 2024\\DATA 608\\Assignment 7\\Combined Mineral DF 2022-2023.csv")
+
+production_df <- read.csv("E:\\CUNY SPS\\Fall 2024\\DATA 608\\Assignment 7\\Combined World Production DF 2022 - 2023.csv")
+```
+
+```{r}
+relaince_df_test <- reliance_df %>% left_join(production_df, by = c("Critical.mineral", "Year"))
+reliance_df <- relaince_df_test
+
+unique(reliance_df$Leading.producing.country)
+unique(reliance_df$Primary.import.source)
+
+countries <- reliance_df$Primary.import.source
+
+categorize_countries <- function(country) {
+  allies <- c("Norway", "Mexico", "Republic of Korea", "Israel", "Canada", 
+              "Japan", "Belgium", "Australia", "United States", 
+              "Germany", "France", "Italy")
+  competitors <- c("China", "Russia")
+  neutral <- c("Jamaica", "Kazakhstan", "South Africa", "Argentina", 
+               "Gabon", "Brazil", "Europe", "Peru", "India", 
+               "Congo (Kinshasa)", "Indonesia", "Malaysia", "Vietnam", 
+               "Bolivia", "Estonia")
+  
+  if (is.na(country)) {
+    return("Unknown") # Handle missing values
+  } else if (country %in% allies) {
+    return("Ally")
+  } else if (country %in% competitors) {
+    return("Competitor")
+  } else if (country %in% neutral) {
+    return("Neutral")
+  } else {
+    return("Unknown")
+  }
+}
+
+reliance_df$import_affiliation <- sapply(reliance_df$Primary.import.source, categorize_countries)
+reliance_df$prod_leader_affiliation <- sapply(reliance_df$Leading.producing.country, categorize_countries)
+
+reliance_df <- reliance_df %>% mutate(Primary.import.source = ifelse(Primary.import.source == "Congo (Kinshasa)", "Democratic Republic of the Congo", Primary.import.source))
+
+reliance_df <- reliance_df %>% mutate(Leading.producing.country = ifelse(Leading.producing.country == "Congo (Kinshasa)", "Democratic Republic of the Congo", Leading.producing.country))
+
+world_map_short <- world_map %>% select(c(region, long, lat))
+world_map_short <- world_map_short %>% rename(Leading.producing.country = region)
+
+world_map_short_prod <- world_map_short %>% semi_join(reliance_df, by = "Leading.producing.country")
+world_map_short_prod <- world_map_short_prod %>% distinct(Leading.producing.country, .keep_all = T)
+
+reliance_df_test <- reliance_df %>% left_join(world_map_short_prod, by = "Leading.producing.country")
+reliance_df_test <- reliance_df_test %>% rename(long_prod = long, lat_prod = lat)
+
+world_map_short <- world_map_short %>% rename(Primary.import.source = Leading.producing.country)
+world_map_short_import <- world_map_short %>% semi_join(reliance_df, by = "Primary.import.source")
+world_map_short_import <- world_map_short_import %>% distinct(Primary.import.source, .keep_all = T)
+
+reliance_df_test <- reliance_df_test %>% left_join(world_map_short_import, by = "Primary.import.source")
+reliance_df_test <- reliance_df_test %>% rename(long_import = long, lat_import = lat)
+
+reliance_df <- reliance_df_test
+
+
+reliance_df_2022 <- reliance_df %>%
+  filter(Year == 2022)
+reliance_df_2023 <- reliance_df %>% 
+  filter(Year == 2023)
+unique(reliance_df$Critical.mineral)
+```
+
+```{r}
+world_map <- map_data("world")
+
+ggplot() +
+  geom_map(data = reliance_df_2022, map = world_map,
+           aes(long_import, lat_import, map_id = Primary.import.source),
+           fill = "gray80", color = "white") +
+  geom_point(data = reliance_df, aes(x = long_import, y = lat_import, color = import_affiliation),
+             size = 3) +
+  scale_color_manual(values = c("Ally" = "blue", "Competitor" = "red", "Neutral" = "gray")) +
+  theme_minimal() +
+  labs(title = "Global Distribution of Mineral Import Sources",
+       color = "Category")
+```
+
+
+```{r}
+# Simplify world map processing
+world_map <- map_data("world") %>%
+  select(region, long, lat, group) %>%
+  rename(Country = region)
+
+# Filter world map for leading producing countries
+producing_map <- world_map %>%
+  semi_join(reliance_df, by = c("Country" = "Leading.producing.country")) %>%
+  distinct(Country, .keep_all = TRUE)
+
+import_map <- import_map %>% rename(long_import = long, lat_import = lat)
+producing_map <- producing_map %>% rename(long_prod = long, lat_prod = lat)
+
+# Filter world map for primary import sources
+import_map <- world_map %>%
+  semi_join(reliance_df, by = c("Country" = "Primary.import.source")) %>%
+  distinct(Country, .keep_all = TRUE)
+
+# Add coordinates to reliance_df
+reliance_df <- reliance_df %>%
+  left_join(producing_map, by = c("Leading.producing.country" = "Country")) %>%
+  left_join(import_map, by = c("Primary.import.source" = "Country"))
+
+# Filter for years
+reliance_df_2022 <- reliance_df %>% filter(Year == 2022)
+reliance_df_2023 <- reliance_df %>% filter(Year == 2023)
+
+# Merge world_map with reliance_df_2022 to highlight relevant regions
+world_map_highlight_2022 <- world_map %>%
+  left_join(reliance_df_2022, by = c("Country" = "Primary.import.source"))
+
+world_map_highlight_2023 <- world_map %>%
+  left_join(reliance_df_2023, by = c("Country" = "Primary.import.source"))
+
+# Plot global distribution
+ggplot() +
+  # Base map layer for ALL regions
+  geom_polygon(data = world_map, 
+               aes(x = long, y = lat, group = group), 
+               fill = "gray80", color = "white") +
+  # Highlighted regions based on import_affiliation
+  geom_polygon(data = world_map_highlight_2022 %>% filter(!is.na(import_affiliation)), 
+               aes(x = long, y = lat, group = group, fill = import_affiliation),
+               color = "white", size = 0.1) +
+  scale_fill_manual(values = c("Ally" = "blue", "Competitor" = "red", "Neutral" = "green")) +
+  theme_minimal() +
+   theme(
+    axis.title = element_blank(),     # Remove axis titles
+    axis.text = element_blank(),      # Remove axis text
+    axis.ticks = element_blank(),     # Remove axis ticks
+    panel.grid = element_blank(),     # Remove grid lines
+    panel.background = element_rect(fill = "white"), # Ensure a clean white background
+    plot.background = element_rect(fill = "white", color = NA)
+  ) +
+  labs(title = "Global Distribution of Mineral Import Sources (2022)",
+       fill = "Category")
+
+
+# Plot global distribution
+ggplot() +
+  # Base map layer for ALL regions
+  geom_polygon(data = world_map, 
+               aes(x = long, y = lat, group = group), 
+               fill = "gray80", color = "white") +
+  # Highlighted regions based on import_affiliation
+  geom_polygon(data = world_map_highlight_2023 %>% filter(!is.na(import_affiliation)), 
+               aes(x = long, y = lat, group = group, fill = import_affiliation),
+               color = "white", size = 0.1) +
+  scale_fill_manual(values = c("Ally" = "blue", "Competitor" = "red", "Neutral" = "green")) +
+  theme_minimal() +
+   theme(
+    axis.title = element_blank(),     # Remove axis titles
+    axis.text = element_blank(),      # Remove axis text
+    axis.ticks = element_blank(),     # Remove axis ticks
+    panel.grid = element_blank(),     # Remove grid lines
+    panel.background = element_rect(fill = "white"), # Ensure a clean white background
+    plot.background = element_rect(fill = "white", color = NA)
+  ) +
+  labs(title = "Mineral Import Trade Partners (2023)",
+       fill = "Affiliation")
+```
+
+
+##Reliance by Country
+```{r}
+str(reliance_df$Apparent.consumption)
+
+reliance_df %>% select(Apparent.consumption, Apparent.consumption.num) %>% View()
+reliance_df$Apparent.consumption.num <- as.numeric(gsub(",|<", "", reliance_df$Apparent.consumption)) 
+reliance_df_2022$Apparent.consumption.num <- as.numeric(gsub(",|<", "", reliance_df_2022$Apparent.consumption)) 
+reliance_df_2023$Apparent.consumption.num <- as.numeric(gsub(",|<", "", reliance_df_2023$Apparent.consumption)) 
+reliance_sum <- reliance_df %>% group_by(Primary.import.source, import_affiliation) %>% summarise(Tot_Mineral_Reliance = sum(Net.Import.Relaince, na.rm = T))
+reliance_sum_2022 <- reliance_df_2022 %>% group_by(Primary.import.source, import_affiliation) %>% summarise(Tot_Mineral_Reliance = sum(Net.Import.Relaince, na.rm = T))
+reliance_sum_2022 <- reliance_sum_2022 %>% arrange(by = Tot_Mineral_Reliance)
+reliance_sum_2023 <- reliance_df_2023 %>% group_by(Primary.import.source, import_affiliation) %>% summarise(Tot_Mineral_Reliance = sum(Net.Import.Relaince, na.rm = T))
+reliance_sum_2023 <- reliance_sum_2023 %>% arrange(by = Tot_Mineral_Reliance)
+
+sum(reliance_df$Apparent.consumption.num, na.rm = T)
+#reliance_sum <- reliance_sum %>% mutate(Perecent_Reliance = Tot_Mineral_Reliance / 11154589)
+
+ggplot(reliance_sum_2022, aes(x = reorder(Primary.import.source, Tot_Mineral_Reliance), 
+                              y = Tot_Mineral_Reliance, fill = import_affiliation)) +
+  geom_bar(stat = "identity") +  
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "2023 U.S. Reliance on Foreign Critical Mineral Imports",
+       x = "Primary Import Source",
+       fill = "Category") +
+  theme(axis.title.x = element_blank(),  
+        axis.ticks.x = element_blank(), 
+        axis.text.x = element_blank(),   
+        panel.grid = element_blank()) +  
+  scale_fill_manual(values = c("Ally" = "blue", "Competitor" = "red", "Neutral" = "green"))
+
+ggplot(reliance_sum_2023, aes(x = reorder(Primary.import.source, Tot_Mineral_Reliance), 
+                              y = Tot_Mineral_Reliance, fill = import_affiliation)) +
+  geom_bar(stat = "identity") +  
+  coord_flip() +
+  theme_minimal() +
+  labs(title = "2023 U.S. Reliance on Foreign Critical Mineral Imports",
+       x = "Primary Import Source",
+       fill = "Category") +
+  theme(axis.title.x = element_blank(),  
+        axis.ticks.x = element_blank(), 
+        axis.text.x = element_blank(),   
+        panel.grid = element_blank()) +  
+  scale_fill_manual(values = c("Ally" = "blue", "Competitor" = "red", "Neutral" = "green"))
+```
+
+##Mineral Consumption Compared to U.S. Production
+```{r}
+consumption_sum <- reliance_df %>%
+  group_by(Critical.mineral) %>%
+  summarise(sum_us_prod = sum(Production, na.rm = T), sum_us_cons = sum(Apparent.consumption.num, na.rm = T))
+
+# consumption_sum_2023 <- reliance_df_2023 %>% group_by(Critical.mineral) %>% summarise(sum_us_cons = sum(Apparent.consumption.num, na.rm = T))
+# 
+# consumption_sum_long <- consumption_sum %>% pivot_longer(cols = c("sum_us_prod", "sum_us_cons"),
+#                                                          names_to = "prod_cons",
+#                                                          values_to = "values")
+# 
+# ggplot(data = consumption_sum_2023, aes(x = reorder(Critical.mineral, import_affiliation), y = sum_us_cons)) +
+#   geom_bar(stat = "identity") +
+#   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+#    coord_flip()
+
+reliance_df_2023$import_affiliation
+
+library(forcats)
+
+reliance_df_2023 <- reliance_df_2023 %>%
+  mutate(Critical.mineral = fct_reorder(Critical.mineral, Net.Import.Relaince, .fun = mean, na.rm = TRUE))
+
+reliance_df_2023$import_affiliation <- factor(reliance_df_2023$import_affiliation, 
+                                                levels = c("Ally", "Competitor", "Neutral"))
+
+
+reliance_df_2023 <- reliance_df_2023 %>%
+  arrange(Net.Import.Relaince)
+
+reliance_df_2023 <- reliance_df_2023 %>%
+  mutate(Critical.mineral = fct_reorder(Critical.mineral, Net.Import.Relaince, .fun = sum, .desc = F))  
+
+reliance_df_2023_test <- reliance_df_2023 %>%
+  mutate(Critical.mineral = ifelse(str_detect(Critical.mineral, "Rare Earths"),
+                                   "Rare Earths",
+                                   Critical.mineral))
+
+#reliance_df_2023 <- reliance_df_2023_test
+
+
+ggplot(data = reliance_df_2023, aes(x = Critical.mineral, y = Net.Import.Relaince, fill = import_affiliation)) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  coord_flip() +
+  scale_fill_manual(values = c("Ally" = "blue", "Competitor" = "red", "Neutral" = "#2FC45D")) + theme_minimal() +
+  labs(x = "Critical Mineral", y = "Percent  Import Reliance", title = " 2023 U.S. Mineral Import Reliance from Primary Trade Sources based on Affiliation", fill = "Trade Partner Affiliation") +
+  theme(panel.grid = element_blank())
+
+
+reliance_df_2023 <- reliance_df_2023 %>%
+  arrange(import_affiliation, desc(Net.Import.Relaince)) %>%
+  mutate(
+    sort_key = paste(import_affiliation, sprintf("%03d", Net.Import.Relaince)),
+    Critical.mineral = factor(Critical.mineral, levels = Critical.mineral[order(sort_key)])
+  )
+
+# Plot the data
+ggplot(data = reliance_df_2023, aes(x = Critical.mineral, y = Net.Import.Relaince, fill = import_affiliation)) +
+  geom_bar(stat = "identity") +
+  coord_flip() +
+  scale_fill_manual(values = c("Ally" = "blue", "Competitor" = "red", "Neutral" = "#2FC45D")) +
+  theme_minimal() +
+  labs(
+    x = "Critical Mineral", 
+    y = "Percent Import Reliance", 
+    title = "2023 U.S. Mineral Import Reliance from Primary Trade Sources based on Affiliation", 
+    fill = "Trade Partner Affiliation"
+  ) +
+  theme(panel.grid = element_blank())
+```
+#Key Importers for Resources We Are 100% Important Reliant on
+```{r}
+reliance_df_2023_100 <- reliance_df_2023 %>% filter(Net.Import.Relaince == 100)
+
+reliance_freq <- reliance_df_2023_100 %>% group_by(Primary.import.source, import_affiliation) %>% summarise(n())
+
+reliance_freq <- reliance_freq %>%
+  mutate(import_affiliation = factor(import_affiliation, levels = sort(unique(import_affiliation))))
+
+ggplot(data = reliance_freq, aes(x = import_affiliation, y = `n()`, fill = Primary.import.source)) +
+  geom_bar(stat = "identity") + 
+  labs(x = "Trade Partner Affiliation", 
+       y = "Types of 100% Reliant Minerals Imported by the U.S.", 
+       title = "Frequency of 100% Net Import Reliant Minerals Supplied by Trade Partners ", 
+       fill = "Country") + 
+  theme_minimal() +
+  coord_flip() +   theme(panel.grid = element_blank())
+```
+##Chart of competitors only
+```{r}
+
+reliance_df_2023_comp$Primary.import.source
+reliance_df_2023_comp <- reliance_df_2023 %>%
+  filter(import_affiliation == "Competitor")
+
+ggplot(data = reliance_df_2023_comp, aes(x = Critical.mineral, y = Net.Import.Relaince, fill = Primary.import.source)) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  coord_flip() +
+  theme_minimal() +
+  labs(x = "Critical Mineral", y = "Percent Import Reliance", title = " 2023 U.S. Mineral Import Reliance from Competitor Countries", fill = "Trade Partner Affiliation (Competitors)") +
+  theme(panel.grid = element_blank()) 
+  
+```
+
+##Alternative Sources
+
+```{r}
+reliance_df_2023_alt$Leading.producing.country
+reliance_df_2023_alt$Percent.of.World.Production
+reliance_df_2023_alt$prod_leader_affiliation
+reliance_df_2023_alt <- reliance_df_2023 %>%
+  semi_join(reliance_df_2023_alt, by = "Critical.mineral")
+
+ggplot(data = reliance_df_2023_comp, aes(x = Critical.mineral, y = Percent.of.World.Production, fill = prod_leader_affiliation)) +
+  geom_bar(stat = "identity") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme_minimal() +
+  labs(x = "Critical Mineral", y = "Percent Import Reliance", title = " 2023 U.S. Mineral Import Reliance from Competitor Countries", fill = "Trade Partner Affiliation (Competitors)") +
+  theme(panel.grid = element_blank()) 
+```
+
+```{r}
+all_trade <- read.csv("E:\\CUNY SPS\\Fall 2024\\DATA 608\\Assignment 7\\All trade 2023.csv")
+all_trade <- all_trade %>% rename(Critical.mineral = Commodity)
+all_trade_red <- all_trade %>%
+  semi_join(reliance_df_2023_alt, by = "Critical.mineral")
+
+all_trade_red$trade_partners
+
+all_trade_red <- all_trade_red %>%
+  mutate(trade_partners = str_split(Leading.import.sources..2019.2022., ",")) %>%
+  unnest(trade_partners)
+all_trade_red <- all_trade_red %>% mutate(trade_partners = trimws(trade_partners))
+all_trade_red$allegiance <- sapply(all_trade_red$trade_partners, categorize_countries)
+
+library(igraph)
+
+edges <- data.frame(from = all_trade_red$Critical.mineral,
+                    to = all_trade_red$trade_partners)
+
+allegiences <- data.frame(
+  name = all_trade_red$trade_partners,
+  allegiance = all_trade_red$allegiance
+)
+
+allegiences <- allegiences %>% distinct(allegiance,  .keep_all = T)
+
+graph <- graph_from_data_frame(d = edges, vertices = allegiences, directed = FALSE)
+
+
+edges <- data.frame(
+  from = all_trade_red$Critical.mineral,
+  to = all_trade_red$trade_partners
+)
+
+
+allegiences <- data.frame(
+  name = all_trade_red$trade_partners,
+  allegiance = all_trade_red$allegiance
+)
+
+
+allegiences <- allegiences %>%
+  group_by(name) %>%
+  summarise(allegiance = first(allegiance), .groups = 'drop')
+
+
+missing_trade_partners <- setdiff(unique(c(edges$from, edges$to)), allegiences$name)
+if(length(missing_trade_partners) > 0) {
+  missing_rows <- data.frame(name = missing_trade_partners, allegiance = "Unknown")
+  allegiences <- bind_rows(allegiences, missing_rows)
+}
+
+# Create the graph
+graph <- graph_from_data_frame(d = edges, vertices = allegiences, directed = FALSE)
+
+print(graph)
+library(ggraph)
+
+ggraph(graph, layout = "fr") +   
+  geom_edge_link(aes(edge_alpha = 0.6), color = "gray") +  
+  geom_node_point(aes(color = allegiance), size = 5) +     
+  geom_node_text(aes(label = name), repel = TRUE, size = 4) +  
+  scale_color_manual(values = c("Ally" = "blue", "Competitor" = "red", "Neutral" = "green")) +  
+  theme_void() +  
+  ggtitle("Critical Mineral Trade Relationships")
+```
+
